@@ -133,75 +133,101 @@
 // // secondTask();
  
 
-// const numberOfFilms = +prompt('сколько фильмов вы посмотрели', "");
-// const personalMovieDB = {
-//    count:  numberOfFilms,
-//    movies: {},
-// };
+let numberOfFilms;
 
-// for (let i = 0; i < 2; i++){
-//       const  a = prompt('Один из последних просмотреных фильмов?', ''),
-//              b = prompt('на сколько оцените его?', '');
-//       if (a != null && b != null && a != '' && b != '' && a.length < 50){
-//           personalMovieDB.movies[a] = b;
-//           console.log('done');
-//       }       else {
-//          --i;
-//          console.log('error');
-//       }
-         
+function start(){
+   numberOfFilms = +prompt('сколько фильмов вы посмотрели', "");  
+while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms) ){
+   numberOfFilms = +prompt('сколько фильмов вы посмотрели', "");
+}}
+
+start();
+
+const personalMovieDB = {
+   count:  numberOfFilms,
+   movies: {},
+   actor: {},
+   genres:  [],
+   privat: false
+};
+
+function remembeMyFilms(){
+   for (let i = 0; i < 2; i++){
+      const  a = prompt('Один из последних просмотреных фильмов?', ''),
+             b = prompt('на сколько оцените его?', '');
+      if (a != null && b != null && a != '' && b != '' && a.length < 50){
+          personalMovieDB.movies[a] = b;
+          console.log('done');
+      }       else {
+         --i;
+         console.log('error');
+      }
+         }}
+
+remembeMyFilms();
+
+function detectPersonalLevel(){
+
+if(personalMovieDB.count <10 ){
+   console.log('довольно мало фильмов');
+} else if (personalMovieDB.count >=10 && personalMovieDB.count < 30){
+   console.log('вы часто смотрете кино');
+} else if (personalMovieDB.count >= 30){
+   console.log(' вы киноман');
+} else {
+   console.log('ощибка');
+}}
+
+detectPersonalLevel();
+
+
+console.log(personalMovieDB);
+
+
+// function sayHello(name){
+//    return 'ПРИВЕТ', `${name}`;
 // }
+// sayHello('антон');
 
-
-// if(personalMovieDB.count <10 ){
-//    console.log('довольно мало фильмов');
-// } else if (personalMovieDB.count >=10 && personalMovieDB.count < 30){
-//    console.log('вы часто смотрете кино');
-// } else if (personalMovieDB.count >= 30){
-//    console.log(' вы киноман');
-// } else {
-//    console.log('ощибка');
+// function sayHello(name) {
+//    return `Привет, ${name}!`;
 // }
-
-// console.log(personalMovieDB);
-
-
-function sayHello(name){
-   return 'ПРИВЕТ', `${name}`;
-}
-sayHello('антон');
-
-function sayHello(name) {
-   return `Привет, ${name}!`;
-}
-console.log(sayHello('Alex'));
+// console.log(sayHello('Alex'));
 
 
-function returnNeighboringNumbers(num) {
-   return [num - 1, num, num + 1];
-   }
- console.log(returnNeighboringNumbers(5));
+// function returnNeighboringNumbers(num) {
+//    return [num - 1, num, num + 1];
+//    }
+//  console.log(returnNeighboringNumbers(5));
   
 
 
 
-function getMathResult(num, tame) {
-   if(typeof(tame) !== 'number' || tame <= 0 ){
-      return num;
-   }
+// function getMathResult(num, tame) {
+//    if(typeof(tame) !== 'number' || tame <= 0 ){
+//       return num;
+//    }
 
- let str = '';
+//  let str = '';
 
-for (let i = 1; i <= tame ; i++ ){
-   if( i === tame){
-      str +=  `${num * i}`; 
-   } else {
-       str += `${num * i}---`;
-   }
+// for (let i = 1; i <= tame ; i++ ){
+//    if( i === tame){
+//       str +=  `${num * i}`; 
+//    } else {
+//        str += `${num * i}---`;
+//    }
  
- }
-  return str;
-}
+//  }
+//   return str;
+// }
 
 
-console.log(getMathResult(5,3));
+// console.log(getMathResult(5,3));
+
+
+// const ctr = 'Lorem ipsum dolor sit amet';
+// console.log(ctr.indexOf('ipsum'));
+// console.log(ctr.slice(6));
+
+// const test = '0.4phghghgx';
+// console.log(parseInt(test));
