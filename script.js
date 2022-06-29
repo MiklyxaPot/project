@@ -363,6 +363,7 @@ arr.forEach(function(item, i, arr){//метод  для перебора в ма
 console.log(`${i}: ${item} внутри масива ${arr}`);
 });
 
+// СПОТОБ копирования обьекта
 function copy(mainObj){
    const copyObj ={};
 
@@ -415,8 +416,58 @@ newArr[1] = 'kjh';
 console.log(newArr);
 console.log(oldArr);
 
+// развертывание
+const video = ['youtube', 'video', 'kinopoisk'],
+      blog = ['vk', 'insta', 'fB',],
+      internet = [...video, ...blog, 'jj', ];
+
+console.log(internet);      
+
+function log(a, b, c){
+   console.log(a);
+   console.log(b);
+   console.log(c);
+}
+
+const num = [5, 7, 2];
+log(...num);// эти три ... они развертывают ланные из масива
 
 
-
-
-
+// функция принемает на себяобьект со всеми данными и возвращает нужный 
+const personalPlanPeter = {
+   name: "Peter",
+   age: "29",
+   skills: {
+       languages: ['ru', 'eng'],
+       programmingLangs: {
+           js: '20%',
+           php: '10%',
+           ruby: '30%'
+       },
+       exp: '1 month'
+   },
+   showAgeAndLeng: function(plan){
+      const {age} = plan;
+      const {languages} = plan.skills;
+      let str = `Мне ${age} лет, яговорю на язках:`;
+      languages.forEach(function(lang){
+         str +=`${lang.toUpperCase()}`;
+      });
+      return str;
+   }
+};
+personalPlanPeter.showAgeAndLeng(personalPlanPeter);
+function showExperience(plan) {
+  const {exp} = plan.skills;
+   return `Мой опыт в програмирование ${exp}`;
+}
+showExperience( personalPlanPeter);
+function showProgrammingLangs(plan) {
+   let str = '';
+const {programmingLangs} = plan.skills;
+for(let key in  programmingLangs){
+   str += `язык ${key} изучен на ${ programmingLangs[key]} \n`;
+} 
+return str;
+}
+showProgrammingLangs(personalPlanPeter);
