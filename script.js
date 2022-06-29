@@ -363,3 +363,60 @@ arr.forEach(function(item, i, arr){//метод  для перебора в ма
 console.log(`${i}: ${item} внутри масива ${arr}`);
 });
 
+function copy(mainObj){
+   const copyObj ={};
+
+   let key;
+   for( key in mainObj){
+      copyObj[key] = mainObj[key];
+   }
+   return copyObj;
+}
+
+const number = {
+   a: 5,
+   d: 6,
+   c: {
+      g: 8,
+      o: 9,
+   }
+};
+
+const newObj = copy(number);
+newObj.a = 10;
+newObj.c.o = 'kjfkdfh';
+
+console.log(newObj);
+console.log(number);
+// второй способ клонировать обьект
+const add = {
+   a: 7,
+   b: 9,
+   c: {
+      g: 87,
+   }
+};
+
+
+const clone = Object.assign({}, add);
+
+clone.c.g = 'lkcjskjkds';
+
+console.log(clone);
+console.log(add);
+
+// копия мвсиивы
+
+const oldArr = ['a', 'd', 'b',];
+
+const newArr = oldArr.slice();
+
+newArr[1] = 'kjh';
+console.log(newArr);
+console.log(oldArr);
+
+
+
+
+
+
