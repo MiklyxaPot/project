@@ -247,3 +247,119 @@ writeYourGenres();
 
 // const test = '0.4phghghgx';
 // console.log(parseInt(test));
+
+
+
+let a = Math.pow(2, 4);
+console.log(a);
+
+function calculateVolumeAndArea(length) {
+if(typeof(length) !== 'number' || length < 0 || !Number.isInteger(length)){
+   return 'при вычесление вышла ошибка';
+}
+   let V = Math.pow(length, 3);
+   let S = 6 * (Math.pow(length, 2));
+   return`Обьем куба ${V}, площадь всей поверхности ${S}`;
+  
+
+}
+console.log(calculateVolumeAndArea('5'));
+
+// местс 1 по 36
+// вкупе 4 места, если 0 , или  больще 36 "такого значения не существует"
+// есди не чсело или в -- то "проверте правильность написания"
+// как вычситать номер купе ?? в купе 4 место место делим на 4 и округляем в большую сторону
+
+   function getCoupeNumber(side) {
+      if(side == 0 || side>36){
+         return 'такого значения не существует';
+      }else if(typeof(side) !== 'number' || side < 0 ||  !Number.isInteger(side)){
+         return "проверте правильность написания";
+      }  let cupe = Math.ceil(side/4);
+         return cupe;
+   }
+   console.log(getCoupeNumber(6));
+
+   // сощдать функцию вводим  цулое число минуты выводим часы минуты . 150 минут = 2  часа 30 минут 
+// запись времени изменяестя 1 час 2 часа 0 часов
+   function getTimeFromMinutes(sek) {
+      let hours = Math.floor(sek/60);
+      let min = sek%60;
+
+      if(typeof(sek) !== 'number' || sek < 0 ||  !Number.isInteger(sek)){
+         return 'Ошибка, проверте данные';
+   } else if(hours < 1 || hours >4){
+      return `${hours} часов ${min} минут`;
+   } else if(hours > 1 || hours < 5){
+      return `${hours} часa ${min} минут`;
+   }
+    return `${hours} час ${min} минут`;
+   }
+   console.log(getTimeFromMinutes(250));
+
+   function findMaxNumber(a, b, c, d) {
+      if(typeof(a) !=='number' || typeof(b) !=='number' || typeof(c) !=='number' || typeof(d) !=='number'){
+         return 0 ;
+      } return Math.max(a, b, c, d);
+   }
+
+
+  console.log( findMaxNumber(3,5,6,'10',)); 
+
+//   функция которая принемает целое положительное число и возвращает в строку через пробел число по порядку фобоначи 0 1 1 2 3 5 8  и т.д. количестыо = аргументу
+
+  function fib(num) {
+   if(typeof(num) !== 'number' || num < 0 || !Number.isInteger(num)){
+      return "";
+   }
+   let a = 0;
+   let b = 1;
+   for(let i = 1; i <= num; i++ ){
+    let  c = a + b;
+      a = b;
+      b = c;
+   }
+    return c;
+    
+}
+
+console.log(fib(6));
+
+
+
+// Обьекты
+const option = {
+   name: 'test',
+   width: 1075,
+   heigth: 1034,
+   colors:{
+      border: 'black',
+      bg: 'Red',
+   }
+};
+// let counter = 0; определение количество свойст в обьекте через подсчет counter
+for(let key in option){//перебор всех свойств в обьекте
+//    // if(typeof(option[key]) === 'object'){//если тип обьект то выплняем for in i
+//    //    for(let i in option[key]){
+//    //       console.log(`свойство ${i} со значением ${option[key][i]}`);// обрашаемся к оьекту i d внутри key
+//    //       counter++;
+//    //    }
+//    //    } else{ 
+//    //        console.log(`свойство ${key} со значением ${option[key]}`);
+//    //        counter++;
+//    // }}
+// counter++;
+let a = Object.keys(option[key]).length;
+console.log(a);
+}
+// console.log(counter);
+
+
+const arr = [2, 3, 4, 6, 8];
+arr[5]= 6;
+console.log(arr.length);
+console.log(arr);
+arr.forEach(function(item, i, arr){//метод  для перебора в масиве, №1 это насвание того что вмасиве; №2 порядковы й номер; №3 название масива котрый перебераем
+console.log(`${i}: ${item} внутри масива ${arr}`);
+});
+
