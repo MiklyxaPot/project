@@ -472,3 +472,67 @@
 // // availableCurr(allCurrencies, 'CNY');// ... соединяют два массива
 
 // // нужен метоткотрый соединяет масивы
+
+
+// const shoppingMallData = {
+// shops: [
+//    {
+//        width: 10,
+//        length: 5
+//    },
+//    {
+//        width: 15,
+//        length: 7
+//    },
+//    {
+//        width: 20,
+//        length: 5
+//    },
+//    {
+//        width: 8,
+//        length: 10
+//    }
+// ],
+// height: 5,
+// moneyPer1m3: 20,
+// budget: 50000
+// };
+
+// function isBudgetEnough(data) {
+//    let s = 0;
+//    let V = 0;
+//  data.shops.forEach(shops =>
+// s += shops.width * shops.length);
+
+// V += s * data.height;
+
+// if( V * data.moneyPer1m3 <= data.budget){
+//   console.log ('бюджета достаточно'); // тут true но все равно выводится else 
+// } else {  console.log( 'надо еще денег');
+// }
+// console.log(data.moneyPer1m3 <= data.budget); // true 
+// }
+
+// isBudgetEnough(shoppingMallData);
+
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+
+
+// function sortStudentsByGroups(arr) {
+//    arr.sort();
+//    const a = [], b = [], c = [], rest = [];
+// for(let i = arr.length; i <= 3; i++){
+//    if(i<3){
+//       a.push(arr[i]);
+//    } else if (i < 6){
+//       b.push(arr[i]);
+//    }else if(i < 9){
+//       c.push(arr[i]);
+//    } else {
+//       rest.push(arr[i]);
+//    }console.log([...a, ...b, ...c, ...`оставшиеся студенты ${rest.length ===0 ? ' ' : rest.join(' ,')}`]).join();
+// }}
+// sortStudentsByGroups(students);
+
+
+// console.log("Ёжик" < "яблоко");

@@ -32,15 +32,1250 @@ body {
 	height: 100%;
 	line-height: 1;
 	font-size: 14px;
-	color: #252b42;
+	color: #252B42;
+	background: #FAFAFA;
+	font-family: Montserrat;
+	/* указать шрифт для  боди */
 }
 /* ---------------------------------------------------------------------------- */
 .wrapper {
 	min-height: 100%;
 	overflow: hidden;
+	/* скрываем горизонтальный скрол, если добавим это для боди то  не сможем скролить сайт, а для внкутренней оболочки этой проблемы не будет */
+	display: flex;
+	flex-direction: column;
+	/* чтобы опустить footer вниз подвал */
 }
 /* ---------------------------------------------------------------------------- */
 ._container {
 max-width: 1046px;
 margin: 0px auto;
+/* позволяет контенерув выстраиватся по центру */
+padding: 0 15px;
+box-sizing: content-box;
+/* padding не будет входить вразмер и есть рамка безопасности по бокам в15 пиксеей  */
+}
+
+._ibg {
+position: relative; 
+
+ }
+._ibg img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
+/* -----шапка----------------------------------------------------------------------- */
+.header {
+	position: absolute ;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 50;
+	/* чтобы она была напервом плане */
+}
+.header__container {
+	display: flex;
+	min-height: 104px;
+	/* высота шапочки */
+	align-items: center;
+}
+
+@media (max-width: 479px) {
+	.header__container {
+		min-height: 70px;
+		
+	}
+	/* на этой  шерене экрана высоташапки меняется. размер малой мобилке  */
+}
+
+.header__logo {
+	font-size: 24px;
+	font-weight: 700;
+	color: inherit;
+	/* ссылки по умолчаниюне нпследуют цвет, надоустанавливать */
+}
+.header__menu {
+	margin: 0 0 0 133px;
+}
+
+@media (max-width: 992px) {
+	.header__menu {
+		margin: 0 0 0 80px;
+	}
+	/* на этой  шерене экрана меняется отступ */
+} 
+
+@media (max-width: 767px) {
+	.header__menu {
+		margin: 0 0 0 40px;
+	}
+	/* на этой  шерене экрана меняется отступ */
+}
+
+@media (max-width: 479px) {
+	.header__menu {
+		margin: 0 0 0 20px;
+		
+	}
+	/* на этой  шерене экрана меняется отступ  */
+}
+.menu {
+	padding: 5px 0;
+	/* отступы безопасмности снизу сверху */
+}
+.menu__list {
+	flex-wrap: wrap;
+	/* позволяет ломатся при уменьшение экрана */
+	display: flex;
+	/* выстраиваем в ряд */
+}
+
+.menu__item {
+	
+}
+.menu__item:not(:last-child) {
+	margin: 0 21px 0 0;
+	/* у всех отступы кроме последнего ребенка */
+}
+.menu__link {
+	color: #737373;
+	line-height: 171%;
+	/* относительна размера щрифта по умолчанию */
+	font-weight: 600;  
+}
+
+@media (max-width: 479px){
+	.menu__link {
+		font-size: 18px;
+		/* увеличиваем шрифт */
+	}
+}
+
+
+/* ------------------PAGE---------------------------------------------------------- */
+
+.page{
+	flex: 1 1 auto;
+	/* позволяем блоку  увеличиватся и он прижмет footer к  низу */
+}
+
+.page__main-block {
+	
+}
+
+.page__services {
+	position: relative;
+	z-index: 2;
+	/* чтобыбыл виден над блоком */
+	margin: -111px 0 0 0;
+	/* чтобы залез на предыдущий блок */
+
+}
+
+.page__advantages {
+}
+
+.page__practice {
+}
+
+.page__whoweare {
+}
+
+.pape__clients:not(:last-child) {
+	margin: 0 0 10px 0;
+}
+
+.page__subscribe {
+}
+
+.page__getintuoch {
+}
+.page__contact {
+}
+
+/* ------------------HEADER-BLOCK---------------------------------------------------------- */
+
+.header-block {
+	text-align: center;
+
+}
+.header-block__title {
+	font-weight: 700;
+	font-size: 40px;
+	letter-spacing: 0.2px;
+	line-height: 142%;
+
+}
+.header-block__title:not(:last-child){
+	margin:0 0 10px 0 ;
+}
+.header-block__sub-title {
+	letter-spacing: 0.2px;
+	color: #737373;
+	line-height: 142%;
+
+}
+
+@media (max-width: 992px){
+	.header-block__title{
+		font-style: 35px;
+		/* при уменьшение экрана уменьшаем размер текста на заголовке */
+	}
+}
+
+@media (max-width: 767px){
+	.header-block__title{
+		font-style: 30px;
+		/* при уменьшение экрана уменьшаем размер текста на заголовке */
+	}
+}
+/* ------------------подвал---------------------------------------------------------- */
+.footer {
+
+}
+/* ------------------MAIL-BLOCK---------------------------------------------------------- */
+
+.main-block {
+	position: relative;
+}
+.main-block__container {
+}
+
+.main-block__body {
+	padding: 184px 0 191px 0;
+	position: relative;
+	z-index: 2;
+	max-width: 410px;
+}
+@media(max-width: 992px) {
+	.main-block__body {
+		padding: 120px 0 191px 0;
+/* при уменьшение экрана убираем отступы сверху */
+	}
+
+}
+
+@media(max-width: 479px) {
+	.main-block__body {
+		padding: 115px 0 160px 0;
+/* при уменьшение экрана убираем отступы сверху */
+	}
+
+}
+
+.main-block__body > *:not(:last-child) {
+	margin: 0 0 35px 0;
+	/* такой записью мы написали что обрашаемся к обьекту первой вложености (*  значит что ко всем тегам) */
+}
+.main-block__title {
+	font-size: 58px;
+	line-height: calc(80/58*100%);
+	font-weight: 800;
+	letter-spacing: 0.2px;
+}
+@media(max-width: 479px) {
+	.main-block__title {
+		font-size: 42px;
+/* уменьшаем шрифт  */
+	}
+
+}
+
+.main-block__text {
+	font-weight: 500;
+font-size: 20px;
+line-height: 1.5;
+letter-spacing: 0.2px;
+
+color: #737373;
+}
+
+@media(max-width: 479px) {
+	.main-block__text {
+	color: #474444;}
+}
+/* затемнение текста чтобы  лучше читался */
+
+.main-block__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	/* позволяем переходить на следующюю строку при уменьшение экрана */
+	margin: -10px 0;
+}
+@media(max-width: 479px) {
+	.main-block__button {
+		 flex: 1 1 100%;
+		/* позволяем увеличиватся  */ 
+	}
+}
+@media(min-width: 479px) {
+	.main-block__button:not(:last-child){
+		margin-right: 10px;
+	}
+}
+/* это стильприменится только на экранах шире заданного */
+
+.main-block__button {
+	border-radius: 37px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 36px;
+	min-height: 48px;
+	letter-spacing: 0.2px;
+	font-weight: 700;
+	line-height: 200%;
+	text-align: center;
+	/*  */
+	margin: 5px 0;
+	/* для кнопок при уменьшение экрана  */
+	  
+}
+/* .main-block__button:not(:last-child){
+	margin-right: 10px;
+} */
+
+.main-block__button_orange{
+	background: #FF7B47;
+	color: #FFFFFF;
+
+}
+.main-block__button_border {
+	color: #0D5C63;
+	border: solid 1px #0D5C63
+}
+
+.main-block__image {
+	position: absolute;
+	/* относительно main-block */
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+}
+@media (max-width: 1420px){
+	.main-block__image img{
+		object-position: right;
+	}
+}
+@media (max-width: 1000px){
+	.main-block__image img{
+		opacity: 0.5;
+	}
+	/* обеливаем картинку чтотбы четко читаося текаст */
+}
+
+
+/* ------------------колонки---------------------------------------------------------- */
+.services {
+}
+.services__container {
+}
+
+.services__body {
+}	
+@media (min-width: 670px) {
+	.services__body{
+	display: flex;
+flex-wrap: wrap;
+	margin: 0 -15px ;
+	/* отрецательный отстуа чтобы были растояние между колонками */}
+}
+/* мобаил ферст */
+
+.services__column {
+	flex: 0 1 33.333%;
+	
+}
+
+
+
+@media (min-width: 670px){
+	.services__column{
+		padding: 0 15px;
+	}
+	
+}
+
+@media (max-width: 992px) {
+	.services__column {
+		flex: 0 1 50%;
+	}
+	.services__column:last-child{
+		flex: 1 1 100%
+	}
+	/* последний элемент увеличивается на всю шеринау */
+	.services__column:not(:last-child){
+		margin: 0 0 30px 0;
+	}
+}
+.services__item {
+	background: #FFFFFF;
+	box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+	padding: 35px;
+	height: 100%;
+}
+
+@media (max-width: 474px) {
+	.services__item {
+		padding: 20px;
+	}
+	
+}
+
+.item-services {
+}
+
+.item-services_green{
+	background: #0D5C63;
+	
+}
+ .item-services_green .item-services__title{
+	color:#FFFFFF
+}
+.item-services_green .item-services__text{
+	color:#FFFFFF
+}
+
+.item-services > *:not(:last-child){
+	margin:  0 0 10px 0;
+}
+.item-services__icon {
+}
+.item-services__title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 133%;
+	color: #252B42;
+	letter-spacing: 0.1px;
+}
+.item-services__text {
+	font-weight: 500;
+	line-height: 143%;
+	color: #737373;
+}
+
+/*-----------------------------------------------------------*/
+
+
+.advantages {
+	padding: 80px 0;
+}
+@media (max-width: 992px){
+	.advantages {
+		padding: 50px 0;
+	}
+	/* меньше размер экрана меньше внутрение отступы */
+}
+
+@media (max-width: 767px){
+	.advantages {
+		padding: 30px 0;
+	}
+	/* меньше размер экрана меньше внутрение отступы */
+}
+
+.advantages__container {
+}
+
+.advantages__header {
+	margin: 0 0 50px 0;
+}
+
+@media (max-width: 767px){
+	.advantages__header {
+		margin: 0 0 35px 0;
+	}
+}
+
+.advantages__body {
+	display: flex;
+	/* делаем адаптив */
+	flex-wrap: wrap;
+	margin: 0px -15px -30px;
+}
+.advantages__column {
+	padding: 0px 15px;
+	margin: 0 0 30px 0;
+	flex: 0 1 25%;
+}
+
+@media (max-width: 1039px) {
+	.advantages__column{
+		flex: 0 1 50%;
+		/* по две колонки будет */
+	}
+}
+
+@media (max-width: 560px) {
+	.advantages__column{
+		flex: 0 1 100%;
+		/* одна колонка будет */
+	}
+}
+.advantages__item {
+	font-weight: 700;
+	background: #fff;
+	padding: 30px;
+	text-align: center;	
+
+}
+
+.advantages__item > *:not(:last-child){
+	margin:  0 0 10px 0;
+}
+
+.advantages__icon {
+	/* иконки не ровные как это исправить */
+	/*  высоту самую высокую иконку  */
+	height: 48px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	/* прижмет к концу */
+}
+.advantages__value {
+	font-style: normal;
+font-size: 40px;
+line-height:  142%;
+letter-spacing: 0.2px;
+color: #252B42;
+}
+.advantages__text {
+font-size: 16px;
+line-height:  150%;
+ letter-spacing: 0.1px;
+color: #737373;
+}
+/* -------------------------Practice ----------------------------------------------------- */
+.practice  {
+	padding: 125px 0px 80px 0px;
+}
+
+@media (max-width: 993px){
+	.practice  {
+		padding: 40px 0px 50px 0px;
+	}
+}
+@media (max-width: 767px){
+	.practice  {
+		padding: 20px 0px 40px 0px;
+	}
+}
+.practice__container {
+}
+
+.practice__header {
+	margin: 0 0 45px 0;
+}
+@media (max-width: 767px){
+	.practice__header {
+		margin: 0 0 25px 0;
+	}
+}
+
+
+
+.practice__body {
+	margin: 0 -20px -30px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.practice__column {
+	padding: 0 20px;
+	margin: 0 0 30px 0;
+	flex: 0 1 25%;
+}
+@media (max-width: 1039px){
+	.practice__column {
+		flex: 0 1 50%;}
+}
+
+@media (max-width: 630px){
+	.practice__column {
+		flex: 0 1 100%;}
+}
+.practice__item {
+
+	
+}
+
+.item-practice__content{
+	flex: 1 1 auto;
+	/* и позволяем тексту рассышатся и он  придавливает картинку к границе блока */
+	/* теперькартинка вснегда  будет внизу, и если текст изменится,  то */
+	padding: 30px;
+	
+}
+.item-practice {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	/* чтобы картинки были ровными придаем свойства  */
+}
+.item-practice__link {
+	color: inherit;
+	display: inline-block;
+	/* link ЭТО ссылка и ей надо придать свой	ства блока */
+}
+.item-practice__link:not(:last-child){
+	padding: 0 0 15px 0;
+}
+.item-practice__link:hover{
+	text-decoration: underline;
+}
+.item-practice__title {
+	font-weight: 700;
+	font-size: 16px;
+	line-height:  150%;
+	letter-spacing: 0.1px;
+}
+
+.item-practice__text {
+	line-height: 143%;
+	color: #737373;
+}
+
+.item-practice__img {
+	display: block;
+	padding: 0px 0px 60% 0px ;
+}
+
+/* ------------------------WHO WE ARE---------------------------------*/
+
+.whoweare {
+	padding: 80px 0 130px 0;
+	background: #FFFFFF;
+}
+
+.whoweare__container {
+}
+
+.whoweare__header {
+	margin: 0 0 100px 0;
+}
+
+
+.whoweare__body {
+	display: flex;
+	/* видео и контент стали в две колонки */
+	align-items: flex-start;
+	/* чтобывсеприжвлоськ к верху, не растягивается в длину но хохраняет форму */
+}
+
+.whoweare__video {
+	flex: 0 0  57%;
+	/* определяем ширину колонки ширину квидео делим на ширину контенера 600:1046=57% */
+	position: relative;
+	padding: 0px 0px 42.25% 0px;
+	/* устанавливаем  процентно  задающиий падениг вниз  ширину фдекс элемента  делим на высоту флекс контенера 442/1046*/
+}
+
+.whoweare__video iframe{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+.whoweare__content {
+	flex: 1 1 auto;
+	/* эта колонка автоматическая */
+	padding: 20px 0 0 121px;
+}
+
+.whoweare__title {
+	font-weight: 700;
+font-size: 40px;
+line-height: 142%;
+letter-spacing: 0.2px;
+}
+
+
+.whoweare__text {
+line-height: 143%;
+color: #737373;
+}
+
+.whoweare__title:not(:last-child){
+	margin: 0 0 10px 0;
+	/* на случайесдт будет элемент убран то нижний отступ будет 10 */
+}
+.whoweare__top:not(:last-child) {
+	margin: 0 0 50px 0;
+}
+.whoweare__items {
+}
+.whoweare__item {
+}
+.whoweare__item:not(:last-child){
+	margin: 0 0 30px 0;
+	/* задаюотступ не самаому элементу text а отступ менжду элементами */
+}
+.item-whoweare {
+	display: flex;
+	/* чтобы икоонка была слева */
+}
+.item-whoweare__icon {
+	flex: 0 0 32px;
+}
+.item-whoweare__body {
+	flex: 1 1 auto;
+	padding: 0 0 0 20px;
+}
+.item-whoweare__title {
+	font-weight: 700;
+font-size: 16px;
+line-height:150%;
+letter-spacing: 0.1px;
+}
+.item-whoweare__text {
+	font-weight: 600;
+line-height: 171%;
+letter-spacing: 0.2px;
+color: #737373;
+/* как сделать текс не полный вывод с трееточием в конце */
+white-space: nowrap;
+/* ЧТОБЫ текст точнобыл в ширину */
+width: 225px;
+/* делаем фиксировану. шерину */
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.item-whoweare__title:not(:last-child){
+	margin: 0 0 5px 0;
+	/* всегдаделать так чтобы обезопасить  верст */
+}
+@media (max-width: 1080px){
+	.whoweare__content {
+		padding: 0px 0 0 50px;
+	}	
+} 
+
+@media (max-width: 950px){
+	.whoweare__title {
+	font-size: 24px;
+	}
+	.whoweare__body {
+		flex-direction: column-reverse;
+		align-items: stretch;
+		/* чтобы видео опятьпоявилось */
+	}
+	.whoweare__header {
+		margin: 0 0 30px 0;
+	}
+	.whoweare {
+		padding: 50px 0 50px 0;
+	}
+	.whoweare__content {
+		padding: 0px 0 0 0px;
+	}
+	.whoweare__video {
+	padding: 0px 0px 56.25% 0px;
+		/* ЧТОбы видео быдл впроцентном соотношении правильным при изменение размера */
+	}
+	.whoweare__video:not(:last-child){
+		margin: 50px 0 50px 0 ;
+	}
+}
+@media (max-width: 767px){
+	.whoweare {
+		padding: 10px 0 50px 0;
+	}
+	.whoweare__top:not(:last-child) {
+		margin: 0 0 20px 0;
+	}
+	.whoweare__video:not(:last-child){
+		margin: 30px 0 0px 0 ;
+	}
+}
+
+/* --------------------CLIANTS------------------ */
+
+.clients {
+	padding: 50px 0 ;
+}
+
+@media (max-width: 767px){
+	.clients {
+		padding: 30px 0 ;
+	}
+}
+
+.clients__container {
+}
+
+.clients__items {
+	display: flex;
+	flex-wrap: wrap;
+	/* картинки встали вряд; */
+	justify-content:center;
+	/* автоматом по центру */
+}
+.clients__item {
+	padding: 0px 15px;
+	flex: 0 1 16.6667%;
+	/* 100/6 = такой процент  */
+	text-align:center;
+	min-width: 140px;
+	/* ограничиваем минемальный размер */
+}
+
+.clients__item img {
+	max-width: 100%;
+	/* на случай если квртинка добаттся боьшего размера , все одинаковые будут */
+}
+
+
+/* -----------------------subscribe-------------------- */
+
+.subscribe {
+	position: relative;
+	padding: 0 0 20px 0 ;
+	/* приподнять контенет */
+}
+
+.subscribe::before{
+	content: "";
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 77px;
+	left: 0;
+	background: #252B42;
+	/* чтобы сделать линию как по макету */
+
+}
+.subscribe__container {
+}
+
+.subscribe__boby {
+	position: relative;
+	z-index: 2;
+	/* чтобы линия по макету былапод контентом */
+	padding: 30px 50px;
+	align-items: center;
+	background: #17213C;
+	border-radius: 2px;
+	
+}
+ 
+@media (min-width:1070px){
+	.subscribe__boby{
+		margin: 0 30px;
+	}
+	/* этосвоййство будет только на ширене 1070  и больше. что меньше то не работает */
+}
+
+@media (min-width:810px){
+	.subscribe__boby{
+		display: flex;
+		justify-content: space-between;
+		/* свойства применяются на ширене больше 810 */
+		/* называется мобаилферст */
+	}
+	.subscribe__title {
+		max-width: 266px;
+	}
+	/* заголовок на две страки будет только на ширене больше 810рх */
+}
+
+
+
+.subscribe__title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 133%;
+	letter-spacing: 0.1px;
+	color: #FFFFFF;
+}
+.subscribe__form {
+	flex: 0 1 50%;
+	display: flex;
+	align-items:center;
+
+}
+.subscribe-input {
+	width: 100%;
+	/* тогда импут автоматически будет подстраиватся под ширину */
+	flex: 1 1 auto;
+	min-height: 58px;
+	padding: 0 20px;
+	background: #F9F9F9;
+	border: 1px solid #E6E6E6;
+	border-radius: 5px 0 0 5px;
+	color: #737373;
+	border-right: 0;
+	}
+
+	.subscribe-input:focus{
+		color: #000;
+	}
+.subscribe__button {
+	background: #FF7B47;
+	border: 1px solid #E6E6E6;
+	border-radius: 0px 5px 5px 0px;
+	display: flex;
+	min-height: 58px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color:#fff;
+	padding: 0 22px;
+}
+
+@media (max-width:810px){
+	.subscribe__title{
+		margin: 0 0 20px 0;
+	}
+	.subscribe__boby{
+		margin: 0 -15px;
+		/* етим способом яна определенном разрешении убираю двойные отступыи и раздвигаю контентную часть */
+		padding: 20px 20px;
+	}
+	.subscribe__button{
+		padding: 0 15px;
+	}
+	.subscribe-input {
+		padding: 0 10px;
+	}
+	/* чтобыуменьшитть высоту сайта на мобилке */
+}
+
+
+/* -------------------------getintuoch----------------- */
+
+.getintuoch {
+	padding: 80px 0 136px 0;
+}
+
+.getintuoch__container {
+}
+
+.getintuoch__header {
+	margin: 0 0 80px 0;
+}
+
+
+.getintuoch__items{
+	margin: 0 -15px;
+	/* убрали не нужный отступ */
+}
+
+
+.getintuoch__item {
+	flex:0 1 33.333%;
+}
+ 
+.item-getintuoch {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+	background-color: #fff;
+	padding: 50px 15px;
+}
+.item-getintuoch_activ {
+	background:  #252B42;;
+	color:#fff;
+	padding: 80px 15px ;
+	/* за счет отступов онвыступает, изза того что align-items центер то контент по центру  */
+}
+.item-getintuoch_activ .item-getintuoch__button{
+	border:1px solid #fff;
+	color:#fff;
+
+}
+
+.item-getintuoch__icon {
+}
+.item-getintuoch >*:not(:last-child){
+margin: 0 0 15px 0 ;
+/* для всех элементов первогоуровня делоаем отступ 15 рх вниз */
+}
+.item-getintuoch__emails {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+}
+.item-getintuoch__email{
+	color:inherit;
+	font-weight: 600;
+	line-height: 171%;
+	text-align: center;
+	letter-spacing: 0.2px;
+
+}
+.item-getintuoch__email:hover{
+	text-decoration: underline;
+}
+.item-getintuoch__label {
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0.1px;
+	font-weight: 700;
+
+}
+.item-getintuoch__button {
+	min-height: 44px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+	font-weight: 600;
+	border-radius: 5px;
+	line-height: 171%;
+	text-align: center;
+	letter-spacing: 0.2px;
+	color: #FF7B47;
+	border: 1px solid #FF7B47;
+	transition: all 0.3s ease 0s;
+	padding: 5px 20px;
+}
+
+.item-getintuoch__button:hover{
+	background-color:#FF7B47;
+	border: 1px solid #FF7B47;
+	color:#fff;
+	
+}
+@media(max-width: 992px){
+	.getintuoch__header {
+		margin: 0 0 50px 0;
+	}
+	.getintuoch {
+		padding: 50px 0 50px 0;
+	}
+	.item-getintuoch_activ {
+		padding: 50px 15px ;
+}
+@media(max-width: 767px){
+	.getintuoch__header {
+		margin: 0 0 30px 0;
+	}
+}
+}
+@media(min-width: 992px){
+	.getintuoch__items {
+		margin: 0;
+	display: flex;
+	align-items:center;
+}
+/* флексработает только до шерины 992, после отклбчаетс и items складывается */
+}
+
+/* ---------------------CONTACT------------- */
+
+.contact {
+	background:#fff;
+	padding: 40px 0;
+}
+.contact__container {
+}
+.contact__content {
+	padding: 0 0 20px 0 ;
+}
+
+@media(min-width: 767px){
+	.contact__body {
+	display: flex;
+	align-items:center;
+	justify-content: space-between;
+}.contact__content {
+	padding: 0 20px 0 0 ;
+	/* отступ безопасности чтобыконтент неприлипал к кнопке */
+}
+}
+
+
+.contact__title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 133%;
+	letter-spacing: 0.1px;
+}
+
+.contact__title:not(:last-child){
+	margin: 0 0 10px 0;
+}
+.contact__text {
+	font-weight: 500;
+	line-height: 143%;
+	letter-spacing: 0.2px;
+	color: #737373;
+}
+.contact__button {
+	display: flex;
+	font-weight: 700;
+	line-height: 200%;
+	text-align: center;
+	align-items:center;
+	justify-content: center;
+	letter-spacing: 0.2px;
+	color: #FFFFFF;
+	min-height: 58px;;
+	background-color: #FF7B47;
+	border-radius: 5px;
+	padding: 15px	40px;
+	transition: background-color 0.3s ease 0s;
+
+}  
+.contact__button:hover{
+	background-color: #a33a10;
+
+}
+/* ---------------------------footer---------------- */
+.footer {
+}
+.footer__top {
+	background: #17213C;
+	padding: 35px 0 ;
+}
+.footer__main {
+	
+}
+.footer__row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+}
+
+.footer__column {
+	padding: 15px 15px;
+	/* благодаря тому что в маржине мы сделаои -15 а в падинге 15 с боков у нас есть отступы безопасности */
+	flex: 0 1 16.6667%;
+	/* хотя помакету у нас 5 колонок последняя занимает два места поэтому по факту у нас 6 колонок */
+	
+}
+.footer__column:last-child{
+	flex: 0 1 33.334%;
+	/* последний элемент занимает два места */
+}
+
+@media(max-width: 992px){
+	.footer__column{
+	flex: 0 1 25%;}
+	.footer__column:last-child{
+		flex: 1 1 100%;
+		/* на этом разменре колонки занимают 4 места а  */
+		/* последний элемент занимает все */
+	}
+}
+
+@media(max-width: 700px){
+	.footer__column{
+	flex: 0 1 50%;}
+	
+}
+.footer__label {
+	color:#fff;
+	font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0.1px;
+margin: 0 0 20px 0;
+}
+.footer__menu {
+}
+
+
+.menu-footer {
+}
+.menu-footer__list {
+}
+.menu-footer__item:not(:last-child) {
+	margin: 0 0 10px 0;
+}
+.menu-footer__link {
+	color:#fff;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 171%;
+
+	letter-spacing: 0.2px;
+}
+.menu-footer__link:hover{
+text-decoration: underline;
+}
+
+.footer__contacts {
+	color:#fff;
+	font-size: 14px;
+line-height: 171%;
+letter-spacing: 0.2px;
+}
+.contact-footer {
+	display: flex;
+	flex-direction: column;
+
+}
+.contact-footer__item{
+	padding: 0 0 0 34px;
+	line-height: 142%;
+	display: flex;
+	align-items:center;
+	color:#fff;
+	min-height: 30px;
+}
+.contact-footer__item:hover{
+	text-decoration: underline;
+}
+.contact-footer__item:not(:last-child) {
+	margin: 0 0 12px 0;
+}
+.contact-footer__item-phone {
+	background: url(/relvise/img/footer/icons/01.svg) 0 0 no-repeat;
+}
+.contact-footer__item-map {
+	background: url(/relvise/img/footer/icons/02.svg) 0 0 no-repeat;
+}
+.contact-footer__item-email {
+	background: url(/relvise/img/footer/icons/03.svg) 0 0 no-repeat;
+}
+/* иконки вставил в css и падингом в .contact-footer__item  их позационировал*/
+
+.footer__bottom {
+	padding: 25px 0 ;
+}
+	.footer__container {
+		display: flex;
+		justify-content: space-between;
+		align-items:center;
+	}
+
+
+
+.footer__copy {
+	font-weight: 600;
+font-size: 14px;
+line-height:171%;
+letter-spacing: 0.2px;
+color: #737373;
+}
+.footer__social {
+}
+.social {
+	display: flex;
+	align-items: center;
+}
+.social__item:not(:last-child) {
+	margin: 0 20px 0 0px;
+}
+@media(max-width: 767px){
+	.footer__container{
+		flex-direction: column;
+	}
+	.footer__copy{
+		margin: 0 0 15px 0px;
+		text-align: center;
+	}
 }

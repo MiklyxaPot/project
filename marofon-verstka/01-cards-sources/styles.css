@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: #111;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* выровнять по центру как колонна */
+  align-items: center;
+  /* по центру экрана */
+}
+
+.container {
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+}
+.slide {
+  height: 80vh;
+  border-radius: 20px;
+  margin: 10px;
+  /* отступы  между блоками */
+  cursor: pointer;
+  /* мышка выделялась */
+  color: #fff;
+  /* color font */
+  flex: 1;
+  /* элементы занимали весьобьем */
+  background-size: cover;
+/*  */
+  background-position: center;
+  /* картинка внутри себя центруется */
+  background-repeat: no-repeat;
+  position: relative;
+  /* без этого надписи будут в однрм месте */
+  transition: all 500ms ease-in-out;
+  /* all все свойчтво анимируем  */
+}
+.slide h3 {
+  position: absolute;
+  /* возможно управлять внутри картинки */
+  font-size: 24px;
+  bottom: 20px;
+  /* снизу положение */
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.slide.active {
+  flex: 10;
+  
+}
+
+.slide.active h3{
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+  /* для онимации, указываем какое свойчтво анимируем, опасити на 0ю3сек, какаяфункция */
+}
