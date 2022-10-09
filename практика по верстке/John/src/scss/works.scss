@@ -1,0 +1,92 @@
+.works {
+
+ 
+
+   &__item {
+     
+      padding: 0 0 30px 0;
+      margin: 0 0 30px 0;
+      border-bottom: 1px solid #E0E0E0;
+      &:last-child{
+         margin-bottom: 0;
+         // упоследнего обьекта убираем отступ
+      }
+      @media(min-width: $mobile) {
+          display: flex;
+         align-items: flex-start;
+      }
+      
+   }
+
+   &__image {
+      // былдобавлен универсальный клас -ibg он прописан в стилях base контент стал задающим для размера картинки
+      flex: 0 0 246px;
+      display: block;
+      // тогдакартинка появляется на мобильном размере
+      border-radius: 6px;
+      min-height: 180px;
+      // задал минимальную высоту картинки
+      overflow: hidden;
+      // чтобыкраякартинки зарезаись
+      @media(max-width: $mobile) {
+        padding: 0px 0px 60% 0px; 
+        margin: 0 0 17px 0;
+     }
+   }
+
+   &__body {
+      flex: 1 1 auto;
+      @media(min-width: $mobile) {
+      padding: 0 0px 0 18px;
+     }
+      
+   }
+
+   &__title {
+      color:inherit;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 146%;
+      display: inline-block;
+      margin: 0 0 15px 0;
+      @media(max-width: $mobile) {
+         font-size: 24px;
+
+      
+      }
+   }
+
+   &__info {
+      display: flex;
+      align-items: center;
+      // выравниваю в одну линию
+      margin: 0 0 15px 0;
+
+   }
+
+   &__year {
+      // теже стили как и на кнопку, один в один
+      background: #142850;
+      border-radius: 16px;
+      font-weight: 900;
+      font-size: 18px;
+      height: 25px;
+      padding: 0px 10px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;   
+   }
+
+   &__category {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 145%;
+      color: #8695A4;
+      margin: 0 0 0 25px;
+
+   }
+
+   &__text {
+   }
+}

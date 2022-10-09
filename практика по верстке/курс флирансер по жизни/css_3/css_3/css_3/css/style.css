@@ -1,0 +1,98 @@
+ОБНУЛЯНИЕ */
+*{
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+*,*:before, *:after{
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+} 
+/* меняет подсчетдлины блока так чтобыудобно верстать */
+
+:focus, :active{outline: none;}
+a:focus,a:active{outline: none;}
+/* убирает лининии обводки на неккоторых браузерах */
+
+nav,footer,header,aside{display: block;}
+/* дулает эти теги блочными  */
+
+html,body{
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 14px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+/* уравнтваем поведение шоифтов на разных платформах и браузерах, заприщает самовольное увеличение шрифта  */
+
+input,button,textarea{font-size: inherit;}
+/* просим их наследовать семейство шрифта так как по умолчаниюони не неследуют */
+input ::-ms-clear{display: none;}
+button{cursor: pointer;}
+button ::-moz-focus-inner{padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul il{list-style: none;}
+img{vertical-align: top;}
+/* разные теги чтобыпо одинаковому в разных браузерах смотрелись */
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+/* обнуляем все наши заголовки */
+
+.block {
+   margin: 50px 0 30px 50px;
+   width: 600px;
+   height: 50px;
+   min-width: 50%;
+   max-width: 50%;
+   overflow: auto;
+}
+
+.block__width{
+ width: 1145px;
+  height: 30px;
+  margin: 32px 0 34px 50px;
+  max-width: 100%;
+  overflow: auto;
+}
+.a__block {
+   width: 453px;
+   height: 14px;
+   margin: 2px 94px 32px 50px;
+   display: block;
+}
+.block__string {
+   margin: 0px 14px 30px 50px;
+   display: inline;
+  
+}
+.contener{
+  margin: 50px 0;
+}
+.span__block {
+   display: block;
+   width: 343px;
+   height: 111px;
+   margin: 37px 0px 0 50px;
+}
+
+.a{
+   margin: 0px 40px;
+}
+.span {
+   margin: 30px 10px 2px 50px;
+}
+
+.p{
+   width: 100%;
+   height: 14px;
+   margin: 34px 50px 35px 10px;
+
+   display: inline;
+}

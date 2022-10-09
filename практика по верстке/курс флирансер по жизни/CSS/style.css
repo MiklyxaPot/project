@@ -1,0 +1,130 @@
+/* ОБНУЛЯНИЕ */
+*{
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+*,*:before, *:after{
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+} 
+/* меняет подсчетдлины блока так чтобыудобно верстать */
+
+:focus, :active{outline: none;}
+a:focus,a:active{outline: none;}
+/* убирает лининии обводки на неккоторых браузерах */
+
+nav,footer,header,aside{display: block;}
+/* дулает эти теги блочными  */
+
+html,body{
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 14px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+/* уравнтваем поведение шоифтов на разных платформах и браузерах, заприщает самовольное увеличение шрифта  */
+
+input,button,textarea{font-size: inherit;}
+/* просим их наследовать семейство шрифта так как по умолчаниюони не неследуют */
+input ::-ms-clear{display: none;}
+button{cursor: pointer;}
+button ::-moz-focus-inner{padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul il{list-style: none;}
+img{vertical-align: top;}
+/* разные теги чтобыпо одинаковому в разных браузерах смотрелись */
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+/* обнуляем все наши заголовки */
+
+body{
+   margin: 0 0 0 50px;
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.title{
+   font-size: 30px;
+ 
+   color: #445161;
+}
+
+.afteTitle{
+   line-height: 1.79;
+   margin: 21px 116px 24px 0px;
+   color: #333
+}
+
+.cssSvoist{
+   margin: 0px 851px 20px 0px;
+   line-height: 1.2;
+   font-size: 25px;
+   color: #445161;
+}
+
+.boldText{
+   font-weight: 700;
+   color:#333;
+
+}
+
+.redText{
+   color: #f00;
+   margin: 20px 0 20px 0;
+}
+
+.title2{
+   margin: 0 0 19px 0;
+   font-size: 20px;
+   line-height: 1.5;
+   /* width: 181px;
+  height: 18px; */
+  color: #445161;
+  text-align: center;
+}
+
+.task{
+   text-align: right;
+  color: #333;
+  margin: 20px 14px 20px 0;
+}
+
+.upcase{
+   margin: 20px 0 20px 0;
+   text-transform: uppercase;
+   color:#333;
+}
+
+.lowercuse{
+   margin: 20px 0 20px 0;
+   text-transform: lowercase;
+   color:#333;  
+}
+
+.decoretion{
+   
+   margin: 20px 0 20px 0;
+   text-decoration: underline;
+   color:#333;  
+}
+
+.spase{
+   margin: 12px 0 20px 0;
+   text-transform: capitalize;
+   word-spacing: 10px;
+   text-indent: 20px;
+   text-decoration: line-through;
+}
+
+.shadow{
+   margin: 20px 0 18px;
+   font-family: TimesNewRomanPSMT;
+   text-shadow: 0.5px 1px 0.8px #000;
+   font-style: italic;
+}

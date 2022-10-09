@@ -1,0 +1,281 @@
+/* ОБНУЛЯНИЕ */
+*{
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+*,*:before, *:after{
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+} 
+/* меняет подсчетдлины блока так чтобыудобно верстать */
+
+:focus, :active{outline: none;}
+a:focus,a:active{outline: none;}
+/* убирает лининии обводки на неккоторых браузерах */
+
+nav,footer,header,aside{display: block;}
+/* дулает эти теги блочными  */
+
+html,body{
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 16px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+/* уравнтваем поведение шоифтов на разных платформах и браузерах, заприщает самовольное увеличение шрифта  */
+
+input,button,textarea{font-size: inherit;}
+/* просим их наследовать семейство шрифта так как по умолчаниюони не неследуют */
+input ::-ms-clear{display: none;}
+button{cursor: pointer;}
+button ::-moz-focus-inner{padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul il {list-style: none;}
+li{ list-style-type: none;}
+/* img{vertical-align: top;} */
+/* разные теги чтобыпо одинаковому в разных браузерах смотрелись */
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight:inherit;}
+/* обнуляем все наши заголовки */
+
+
+/* ============================ */
+
+body{
+   font-family: Manrope;
+   color: #333333
+}
+.wrapper{
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   /* начальные стили для врапера. это общая оболочка */
+}
+/* ============================ */
+.page {
+   flex: 1 1 auto;
+}
+/* ============================ */
+
+[class*=__container]{
+max-width: 1170px;
+margin: 0 auto;
+/* отступ безоасности */
+}
+@media(max-width: 1199.98px){
+   [class*=__container]{
+      max-width: 970px;
+   }
+}
+
+@media(max-width:990.98px){
+   [class*=__container]{
+      max-width: 750px;
+   }
+}
+
+@media(max-width:767.98px){
+   [class*=__container]{
+      max-width: none;
+      padding: 0px 15px;
+
+   }
+}
+/* ------------------------------------------- */
+
+.footear {
+}
+/* ------------------------------------------------ */
+
+.header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; 
+   /* блок потеряет свое тело т следуюший блок начтентся в нем  */
+   z-index: 5;
+}
+.header__container {
+   display: flex;
+   justify-content:space-between ;
+   min-height: 103px;
+   column-gap: 10px;
+   row-gap: 15px;
+   align-items: center;
+   /* вычоту блока*/
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+@media(max-width: 768.98px){
+   .header__container{
+      min-height: 0;
+      flex-direction: column;
+   }
+}
+
+.header__logo {
+   font-weight: 800;
+   font-size: 23px;
+   color:inherit;
+}
+.header__menu {
+}
+/* ============================== */
+.menu {
+}
+.menu__list {
+   display: flex;
+   /* встало в линию */
+   flex-wrap: wrap;
+   column-gap: 46px;
+   row-gap: 15px;
+   /* даетвозможнось ломатся */
+}
+.menu__item {
+
+}
+.menu__link {
+   font-weight: 700;
+   font-size: 13px;
+   color:inherit;
+}
+.menu__link:hover{
+   text-decoration: underline;
+}
+
+@media(max-width: 767.98px){
+   .menu__list{
+      justify-content: center;
+   }
+   .menu__link {
+      font-size: 18px;
+   }
+}
+
+/* ==================================== */
+
+
+
+.main-blok {
+   
+}
+.main-blok__container {
+   position: relative;
+   padding-top: 183px ;
+}
+.main-blok__container::after{
+   background: #BDCCFF;
+   content:"";
+   position: absolute;
+   width: 200%;
+   left: 68%;
+   top:0;
+   height: 100%;
+}
+
+.main-blok__body {
+
+}
+.main-blok__partners {
+}
+
+.body-main-blok { 
+    display: flex;
+}
+.body-main-blok__content {
+   flex:0 1 50%;
+}
+
+.content-main-blok__body {
+   padding-right: 80px;
+}
+.content-main-blok { 
+}
+.body-main-blok__body{
+
+}
+
+.content-main-blok__sub-title {
+   font-weight: 700;
+   font-size: 22px;
+   line-height: 29px;
+   color: #FF9900;
+   text-transform: uppercase;
+   /* ваерхнем регистре */
+   margin-bottom: 24px;
+}
+.content-main-blok__title {
+   font-weight: 800;
+   font-size: 54px;
+   line-height: 135%;
+   margin-bottom: 20px;
+
+}
+.content-main-blok__text {
+   font-weight: 400;
+   font-size: 17px;
+   line-height: 135%;
+   letter-spacing: 0.01em;
+   margin-bottom: 45px;
+
+
+}
+.content-main-blok__form {
+}
+
+
+.form-main-blok {
+}
+.form-main-blok__input {
+}
+.form-main-blok__buttom {
+}
+.body-main-blok__slider {
+   flex: 0 1 50%;
+   min-width: 0;
+}
+
+.partners-main-blok {
+}
+.partners-main-blok__label {
+}
+.partners-main-blok__items {
+}
+.partners-main-blok__item {
+}
+
+.body-main-blok__slider {
+   /* flex: 0 1 50%;
+   min-width: 0; */
+  
+}
+.slider-main-blok {
+}
+.swiper {
+}
+.slider-main-blok__wrapper {
+}
+.swiper-wrapper {
+}
+.slider-main-blok__slide {
+    /* position: absolute;
+    z-index: 5; */
+}
+.swiper-slide { 
+  
+}
+.slider-main-blok__arrow {
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+}

@@ -1,0 +1,40 @@
+// Заголовки, общие БЄМ блоки и проче...
+.text {
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 150%; 
+}
+.title {
+   font-weight: 700;
+font-size: 44px;
+line-height: 136%;
+@media (max-width:$mobile){
+   font-size: 32px;
+   
+  }
+}
+
+.title-posts{
+   font-size: 22px;
+   @media (max-width:$mobile){
+      text-align: center;
+      font-size: 18px;
+      }
+}
+
+.social {
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   &__item {
+      transition: color 0.3s ease0s;;
+      margin: 0 17px;
+      font-size: 30px;
+      color:inherit;
+      @media (nim-width: $tablet){
+         &:hover{
+            color:#FF6464;
+         }
+      }
+   }
+}

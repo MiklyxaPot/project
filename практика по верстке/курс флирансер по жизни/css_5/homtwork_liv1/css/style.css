@@ -1,0 +1,190 @@
+*{
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+*,*:before, *:after{
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+} 
+/* меняет подсчетдлины блока так чтобыудобно верстать */
+
+:focus, :active{outline: none;}
+a:focus,a:active{outline: none;}
+/* убирает лининии обводки на неккоторых браузерах */
+
+nav,footer,header,aside{display: block;}
+/* дулает эти теги блочными  */
+
+html,body{
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 14px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+/* уравнтваем поведение шоифтов на разных платформах и браузерах, заприщает самовольное увеличение шрифта  */
+
+input,button,textarea{font-size: inherit;}
+/* просим их наследовать семейство шрифта так как по умолчаниюони не неследуют */
+input ::-ms-clear{display: none;}
+button{cursor: pointer;}
+button ::-moz-focus-inner{padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul il{list-style: none;}
+img{vertical-align: top;}
+/* разные теги чтобыпо одинаковому в разных браузерах смотрелись */
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+/* обнуляем все наши заголовки */
+
+body {
+background:#e8e8e8 url(/img/ellipse-1-copy.png) 50% 30px no-repeat;
+
+}
+
+.content {
+   padding: 62px 0 46px 0;
+   max-width: 841px;
+   margin: 0px auto;
+   /* центроуем блок  */
+}
+
+.content-top {
+   text-align: center;
+   margin: 0 0 70px 0;
+
+}
+.content-top__category {
+   color: rgba(39, 61, 70, 0.6);
+   font-family: Arial, Helvetica, sans-serif ;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.content-top__title {
+    /* margin: 0 0 20px 0; */
+      font-size: 36px;
+      line-height: 50px;
+      color: #273d46;
+      max-width: 725px;
+      margin: 0px auto;    
+}
+
+
+.content-img {
+   box-shadow: 0px 15px 65px 0 rgba(15, 16, 16, 0.15);
+   background: #fff;
+   padding: 10px;
+   margin: 0 0 95px 0;
+}
+.content-img img{
+   max-width: 100%;
+}
+
+
+.content-bottom {
+   padding: 0 45px;
+}
+.content-bottom__text {
+   object-fit: contain;
+   opacity: 0.8;
+   font-family: TimesNewRomanPSMT;
+   font-size: 24px;
+   margin: 0 0 48px 0;
+   line-height: 40px;
+   text-align: left;
+   color: rgba(39, 61, 70, 0.8);
+}
+.content-bottom__text p {
+   margin: 0 0 40px 0;
+}
+
+.content-bottom__text p:last-child {
+   margin: 0 0 0 0;
+}
+.content-bottom-info {
+}
+.content-bottom-info-list {
+   margin: 0 0 59px 0;
+}
+
+.content-bottom-info-list li {
+      list-style-type: none;
+      margin: 0 0 13px 0;
+      object-fit: contain;
+      font-family: Arial;
+      font-size: 20px;      
+      text-align: left;
+      background: url(/img/icons/check-icon.png) left no-repeat;
+      padding: 0 0 0 36px;
+    
+}
+
+.content-bottom-info-list li:nth-child(1){
+   text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.3);
+   color: #273d46
+}
+
+
+.content-bottom-info-list li:nth-child(2){
+   color: #80b7b3;
+   font-style: italic;
+
+}
+.content-bottom-info-list li:nth-child(3){
+   font-weight: 700;
+   color: #273d46;
+}
+/* обрашаемся к каждому елементу списка li */
+.content-bottom-info-list li:nth-child(4){
+ text-decoration: line-through; 
+   color: rgb(39, 61, 70,);
+}
+
+.content-bottom-info-list li:nth-child(4) span {
+   opacity: 0.3;
+
+}
+.content-bottom-info-list li:last-child{
+   margin: 0;
+}
+
+.content-bottom-info-link {
+      height: 44px;
+      display: inline-block;
+      /* у нас спан это  линейный блок и высота и ширина не него не дейсвует. нужно ему свойства бокс блоков  придать */
+      line-height: 44px; 
+      border-radius: 25px;
+      -webkit-box-shodow: 0px 5px 1px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 6px 1px  rgba(0, 0, 0, 0.54);
+      padding: 0 30px;
+      background: rgba(128, 183, 179, 0.54);
+         margin: 2px 11px 2px 0;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 14px;
+         line-height: 2.86;
+         letter-spacing: 2.8px;
+         text-align: left;
+         color: #fff;
+         text-transform: uppercase;
+       
+}
+
+.content-bottom-info-link:hover{
+   background-color: #4b1f20;
+}
+
+.content-bottom-info-link:active{
+   position: relative;
+   top: 3px;
+   -webkit-box-shodow: 0px 5px 1px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 6px 1px  rgba(0, 0, 0, 0.54);
+}

@@ -1,0 +1,231 @@
+//====================================================================================================
+.page {
+   flex: 1 1 auto;
+   padding: 90px 0 30px 0;
+   @media (max-width:$mobile){
+      padding: 30px 0px 70px 0;
+   }
+
+}
+.hello {
+   padding: 38px 0 70px 0 ;
+   @media (max-width:$tablet){
+      padding: 0px 0px 70px 0;
+   }
+   @media (max-width:$mobile){
+      padding: 0px 0px 60px 0;
+   }
+
+   &__container {
+      display: flex;
+      // на мобилках нужно чтобы в ряд как сделать:
+      @media (max-width:$mobile){
+       flex-direction:column-reverse;
+       text-align:center;
+         
+      }
+   }
+   &__content {
+      align-items:flex-start;
+      // принудительно прижимают флелс контененр к верху
+      flex: 1 1 auto; 
+      padding: 18px 110px 0 0;
+      *:last-child{
+         margin-bottom: 0;
+         // у последнего эдемента в контенте убираем висячий отступ
+      }
+      @media (max-width:$tablet){
+         padding: 18px 50px 0 0px;
+      }
+      @media (max-width:$mobile){
+         padding: 0px 0px 0 0;
+        }
+   }
+   &__title {
+      margin: 0 0 30px 0  ;
+      @media (max-width:$mobile){
+         margin: 0px 0px 20px 0;
+        }
+   }
+   &__text {
+      margin: 0 0 35px 0  ;
+      @media (max-width:$mobile){
+         margin: 0px 0px 25px 0;
+         padding: 0px 15px;
+        }
+   }
+   &__btn {
+      margin: 0 0 25px 0;
+      @media (max-width:$mobile){
+         margin: 0px 0px 20px 0;
+        }
+   }
+   &__avatar {
+      flex: 0 0 234px;
+   //   position: relative;
+      height: 243px;
+      border: radius 50%;
+      overflow: hidden;
+  
+      img{
+         z-index: 2;
+         max-width: 100%; 
+         
+         @media (max-width:$mobile){
+            flex:0 0 170px;
+
+          margin: 0 0 40px 0px;
+            width: 170px;
+            height: 170px;
+           }
+      }
+         
+      }
+   }
+
+
+
+
+//====================================================================================================
+.recent-posts {
+   background: #EDF7FA;
+   padding: 25px 0 13px 0;
+   @media (max-width:$mobile){
+      padding: 25px 0 23px 0;
+
+      }
+   &__container{
+
+   }
+   &__header{
+   display: flex;
+   margin: 0 0 20px 0;
+
+   }
+   &__title {
+      padding: 0 20px 0 0;
+      flex: 1 1 auto;
+      font-weight: 400;
+      font-size: 22px;
+      @media (max-width:$mobile){
+         font-size: 18px;
+         }
+   }
+   &__view-all {
+      flex: 0 0 auto;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      @media (max-width:$mobile){
+        display: none;
+        }
+      color: #00A8CC;
+   }
+   &__items {
+        
+      // отступ между колонками
+      margin: 0px -10px;
+      @media (min-width:$mobile){ 
+         display: flex;
+      }
+   }
+
+   &__column {
+      // а тут флексп по 50% и радинг 10
+      flex: 0 1 50%;
+      padding: 0px 10px;
+      margin: 0 0 17px 0;
+   } 
+      &__item {
+   
+   }
+}
+
+
+.recent-post{
+   height: 100%;
+   // чтобы  колонки были одной высоты при изменение контента в одеой из них
+   background-color: #FFFFFF;
+   box-shadow: 0px 4px 10px rgba(187, 225, 250, 0.25);
+   border-radius: 4px;
+   padding: 20px;
+   @media (max-width:$mobile){
+      padding: 15PX;
+      }
+      *:last-child{
+         margin-bottom: 0;
+         // такой записью мы обрашаемся ковсем обьектам , а цель уплседнего элементаубарть висячийотступ
+      }
+   &__title {
+      display: inline-block;
+      color:inherit;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 146%;
+      margin: 0 0 17px 0;
+      &:hover{
+         color:#FF6464;
+      }
+      @media (max-width:$mobile){
+         font-size: 22px;
+         margin: 0 0 12px 0;
+         }
+   }
+   
+   &__info {
+      margin: 0 0 15px 0 ;
+      font-weight: 400;
+   font-size: 18px;
+   line-height: 144%;
+   span{
+      margin: 0 10px;
+   }
+   @media (max-width:$mobile){
+      font-size: 16px;
+      margin: 0 0 10px 0;
+      }
+   }
+   &__text {
+      margin: 0 0 15px 0;
+   }
+
+
+}
+//====================================================================================================
+
+
+.featured-works {
+   padding: 30px 0px 30px 0px;
+   @media(max-width: $mobile) {
+      padding: 30px 0px 30px 0px;
+
+      }
+   
+
+   &__container {
+   }
+   
+   &__title {
+      margin: 0 0 20px 0;
+   } 
+   &__items{
+      @media(max-width: $mobile) {
+         display: flex;
+         overflow: auto;
+         // появилась возможность скролить
+         .works__item{
+               flex: 0 0 90%;
+               margin: 0 15px 0 0 ;
+              //  таким флексом и падингом мы показываем пользователючтотам чтото есть и емк нужно прослайдерить
+         }
+      } 
+   }
+}
+
+
+
+
+
+
+//====================================================================================================
+
