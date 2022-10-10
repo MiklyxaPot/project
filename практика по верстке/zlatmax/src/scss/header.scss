@@ -481,6 +481,29 @@ color: #fff;
       display: flex;
       position: relative;
       transition: color 0.3s ease 0s;
+      &[data-parent]{
+         &::before{
+            @extend %ic;
+            @extend ._icon-arrow-bottom;
+            display: none; 
+            @media (max-width:$tablet){
+               // делаем стрелку
+               display: block;
+               transform: translateY(rem(5)) rotate(-90deg); 
+               font-size: rem(10);
+               
+
+            }
+         }
+      }
+      @media (max-width:$tablet){
+         display: flex;
+         width: 100%;
+         justify-content: space-between;
+         flex-direction: row-reverse;
+              
+              
+      }
       @media (min-width:$tablet){
          justify-content:center;
          align-items: center;
@@ -512,12 +535,15 @@ color: #fff;
             }
          }
       }
-      &._sub-menu-active{
+      @media (min-width:$tablet){
+           &._sub-menu-active{
          color: $mainOrange;
             &::after{
                opacity: 1;
                visibility: visible;
             }
+      }
+      
       }
       @media (max-width:$tablet){
          @include adaptiveValue("font-size", 30, 20, 992, 320, 1 );
@@ -608,17 +634,33 @@ color: #fff;
      padding: 0px rem(10);
    }
    &__category {
-      font-weight: 700;
       font-size: rem(16);
       line-height: math.div(20 , 16);
-      padding: rem(30) rem(15) rem(30) 0;
 
       @media (any-hover: hover){
          &:hover{
             text-decoration: underline;
          }
       }
+      @media (min-width:$tablet){
+         padding: rem(30) rem(15) rem(30) 0; 
+         font-weight: 700;
+         
+
+      }
+      @media (max-width:$tablet){
+         &:not(:last-child) {
+            margin-bottom: em(25, 16);
+         }
+      }
    }
+
+
+		&__link-category {
+         @include adaptiveValue("font-size", 30, 20, 992, 320);
+		}
+
+
 	
    &__list {
       display: flex;
@@ -627,6 +669,9 @@ color: #fff;
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       padding: rem(30) rem(15) rem(30) 0;
+      @media (max-width:$tablet){
+         display: none;
+      }
    }
 
    &__item {
@@ -640,10 +685,13 @@ color: #fff;
             text-decoration: underline;
          }
       }
+
    }
 	&__footer {
       padding: rem(30) rem(15) rem(30) 0;
-
+      @media (max-width:$tablet){
+         display: none;
+      }
    }
    &__all {
       font-size: rem(16);
