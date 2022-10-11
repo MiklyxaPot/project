@@ -115,13 +115,18 @@ window.addEventListener('DOMContentLoaded', () => {
       const modal = document.querySelector('.modal');
       const modalClose = document.querySelector('[data-close]');
         
-
-      modalTrigger.forEach(btn =>{
-         btn.addEventListener('click', () =>{
+      function openModal(){
          modal.classList.add('show');
          modal.classList.remove('hide');
          document.body.style.overflow = 'hidden';
-      });
+         clearInterval(modalTimeId);//если уже произошло сробатывание этой функции то автоматическое открытие modalTimeId не произойдет, оно очистится
+         
+      }
+
+      modalTrigger.forEach(btn =>{
+         btn.addEventListener('click', openModal);
+
+   
       });
       function closeModal(){
          modal.classList.add('hide');
@@ -141,5 +146,16 @@ window.addEventListener('DOMContentLoaded', () => {
          if(e.code === 'Escape' && modal.classList.contains('show')){
             closeModal();
          }
-      })
+      });
+
+      const modalTimeId = setTimeout(openModal, 3000);
+
+      function showModalByScroll(){
+         if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);
+         }
+      }
+// когда проискодит событие скрол до конца выпоняется условие и запускается openModal, после этого удаляется обработчик события скрола
+      window.addEventListener('scroll', showModalByScroll);
 });
