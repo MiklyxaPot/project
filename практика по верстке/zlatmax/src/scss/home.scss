@@ -9,23 +9,82 @@
 
    &__body {
       display: grid;
+      align-items: start;//прижал элементы к верху
       grid-template-columns: 1fr percent(636, 1600);
       //percent это миксин который считаки проценты, 636 это ширина кортинки, 1600 шерина контенткой части 
    }
 
    &__slider {
+      margin:  0px rem(-30);
+      padding: 0px rem(30);//чтобы не прижималосб -мфржин и +паддинг
+  
    }
-
-   &__swiper {
+// бывший swaper
+   &__wrapper {
+      &:not(:last-child) {
+         margin-bottom: rem(30);//дал оболочке нижний маржин чтобы кнопки опустились
+        }
    }
 
    &__slide {
+
    }
 
    &__media {
    }
 
    &__advantares {
+   }
+
+
+   &__controll {
+   }
+}
+.controll-main-block {
+   display: inline-grid;
+   grid-auto-flow: column;
+   gap: rem(20);
+
+   &__dotts {
+      display: inline-grid;
+      grid-auto-flow: column;
+      gap: rem(15);
+      .swiper-pagination-bullet{
+         height: 2px;
+         width: 15px;   
+         background-color:#fff;
+          
+      }
+      .swiper-pagination-bullet-active{
+         background-color: $mainOrange;
+         position: relative;
+         &::before{
+            content:'';
+            background-color: $mainOrange;
+            position: absolute;//делаем м позиционируем кружщчек
+            height: rem(10);
+            width: rem(10);
+            top: 50%;
+            left: 0;
+            border-radius:50%;
+            transform: translate(0px,-50%);//кружочек слево черты
+         }
+      }
+   }
+
+   &__fraction {
+      display: flex;
+      color: #fff;
+   }
+}
+.fraction-control {
+}
+.fraction-controll {
+
+   &__current {
+   }
+
+   &__all {
    }
 }
 .slide-main-block {
