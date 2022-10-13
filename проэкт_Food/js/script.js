@@ -52,19 +52,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
    function getTimeRemaining(endtime) {
       const t = Date.parse(endtime) - Date.parse(new Date()); //от конечной датымы отнимаем текушюю
-         let days, hours, minutes, seconds;
-         if(t <= 0 ){
-            days = 0;
-            hours = 0;
-            minutes = 0;
-            seconds = 0;
-         } else {
+      let days, hours, minutes, seconds;
+      if (t <= 0) {
+         days = 0;
+         hours = 0;
+         minutes = 0;
+         seconds = 0;
+      } else {
          days = Math.floor(t / (1000 * 60 * 60 * 24)),// получаем дни полученное число делим на количествло милисикунд
-         hours = Math.floor((t / (1000 * 60 * 60) % 24)),// оператор % делит на число и возврашает остаток(50\24= 2.08 вернет 08)
-         minutes = Math.floor((t / 1000 / 60) % 60),//минуты это остаток от деления на 60
-         seconds = Math.floor((t / 1000) % 60);
-         }
-      
+            hours = Math.floor((t / (1000 * 60 * 60) % 24)),// оператор % делит на число и возврашает остаток(50\24= 2.08 вернет 08)
+            minutes = Math.floor((t / 1000 / 60) % 60),//минуты это остаток от деления на 60
+            seconds = Math.floor((t / 1000) % 60);
+      }
+
       return {
          'total': t,// total этосвойство ; тут записывается сколько время осталось в милисикундах
          'days': days,
@@ -74,10 +74,10 @@ window.addEventListener('DOMContentLoaded', () => {
       }
    }
 
-   function getZero(num){
-      if(num >= 0 && num < 10){
+   function getZero(num) {
+      if (num >= 0 && num < 10) {
          return `0${num}`;
-      } else{
+      } else {
          return num;
       }
    }
@@ -88,14 +88,14 @@ window.addEventListener('DOMContentLoaded', () => {
          minutes = document.querySelector('#minutes'),
          seconds = document.querySelector('#seconds'),
          timeInterval = setInterval(updateClock, 1000);// будет запускать эту функцию каждую секунду 
-         updateClock();
+      updateClock();
       function updateClock() {
          const t = getTimeRemaining(endtime);
 
          days.innerHTML = getZero(t.days),
-         hours.innerHTML = getZero(t.hours),
-         minutes.innerHTML = getZero(t.minutes),
-         seconds.innerHTML = getZero(t.seconds);
+            hours.innerHTML = getZero(t.hours),
+            minutes.innerHTML = getZero(t.minutes),
+            seconds.innerHTML = getZero(t.seconds);
 
          if (t.total <= 0) {
             clearInterval(timeInterval);//когда время выщло таймер остановится, не будет обновлятся
@@ -106,56 +106,131 @@ window.addEventListener('DOMContentLoaded', () => {
    }
    setClock('.timer', deadLine);
 
-      // =========================MODAL====================
-      // const modalOpen = document.querySelector('data-modal');
-      //    modalOpen.addEventListener('click', (e) =>{
-      //       e.target.style.display = "block";
-      //    })
-      const modalTrigger = document.querySelectorAll('[data-modal]');
-      const modal = document.querySelector('.modal');
-      const modalClose = document.querySelector('[data-close]');
-        
-      function openModal(){
-         modal.classList.add('show');
-         modal.classList.remove('hide');
-         document.body.style.overflow = 'hidden';
-         clearInterval(modalTimeId);//если уже произошло сробатывание этой функции то автоматическое открытие modalTimeId не произойдет, оно очистится
-         
+   // =========================MODAL====================
+   // const modalOpen = document.querySelector('data-modal');
+   //    modalOpen.addEventListener('click', (e) =>{
+   //       e.target.style.display = "block";
+   //    })
+   const modalTrigger = document.querySelectorAll('[data-modal]');
+   const modal = document.querySelector('.modal');
+   const modalClose = document.querySelector('[data-close]');
+
+   function openModal() {
+      modal.classList.add('show');
+      modal.classList.remove('hide');
+      document.body.style.overflow = 'hidden';
+      clearInterval(modalTimeId);//если уже произошло сробатывание этой функции то автоматическое открытие modalTimeId не произойдет, оно очистится
+
+   }
+
+   modalTrigger.forEach(btn => {
+      btn.addEventListener('click', openModal);
+
+
+   });
+   function closeModal() {
+      modal.classList.add('hide');
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+   }
+
+   modalClose.addEventListener('click', closeModal);
+
+   modal.addEventListener('click', (e) => {
+      if (e.target === modal) {//когдапользователь кликнулна обвертку окна, но не само окно , то выполняется условие
+         closeModal();
+      }
+   })
+
+   document.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape' && modal.classList.contains('show')) {
+         closeModal();
+      }
+   });
+
+   const modalTimeId = setTimeout(openModal, 3000);
+
+   function showModalByScroll() {
+      if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+         openModal();
+         window.removeEventListener('scroll', showModalByScroll);
+      }
+   }
+   // когда проискодит событие скрол до конца выпоняется условие и запускается openModal, после этого удаляется обработчик события скрола
+   window.addEventListener('scroll', showModalByScroll);
+
+   // =======================CHAMGE CART==========================
+   // ДЕЛАЕМ КАРТОЧКИ ДИНОМИЧЕСКИ
+
+   class MenuCard {
+      constructor(src, alt, title, descr, praice, parentSelector) {
+         this.src = src;
+         this.alt = alt;
+         this.title = title;
+         this.descr = descr;
+         this.praice = praice;
+         this.parent = document.querySelector(parentSelector);//сюда будет передаватся элемент который мы будет задавать в настройках
+         this.transfer = 63;
+         this.changeToRub();//когда сююда дойдет код он вызовет этотметод . он поститает и перезапишит  praice;
       }
 
-      modalTrigger.forEach(btn =>{
-         btn.addEventListener('click', openModal);
+      changeToRub() {
+         this.praice = this.praice * this.transfer;
+      }
 
+      render() {
+         const element = document.createElement('div');
+         element.innerHTML = `
+               <div class="menu__item">
+               <img src=${this.src} alt=${this.alt}>
+               <h3 class="menu__item-subtitle">Меню ${this.title}</h3>
+               <div class="menu__item-descr">${this.descr}</div>
+               <div class="menu__item-divider"></div>
+               <div class="menu__item-price">
+                   <div class="menu__item-cost">Цена:</div>
+                   <div class="menu__item-total"><span>${this.praice}</span> рубль/день</div>
+               </div>`;
+         this.parent.append(element);//метод append помешает заданый элемент в  ново созданфй элемент
+      }
+   }
+   new MenuCard(//сюда передаем аргументы с кода html
+   "img/tabs/vegy.jpg",//передавать в ""
+   "vegy",
+   "Меню 'Фитнес'",
+   "Меню 'Фитнес' - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!",
+   10,
+   '.menu .container'//родительский селектор
+
+
+   ).render();//такая запись без const div= ТОже верна, она вызоветсятолбк в конструкторе потом удалится таккак нет ссылок на нее больше
+
+   new MenuCard(//сюда передаем аргументы с кода html
+   "img/tabs/post.jpg"  ,//передавать в ""
+   "post",
+   'Меню "Постное"',
+   'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+   7,
+   '.menu .container'//родительский селектор
+
+
+   ).render();
+   new MenuCard(//сюда передаем аргументы с кода html
+   "img/tabs/elite.jpg",//передавать в ""
+   "elite",
+   'Меню “Премиум”',
+'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+   9,
+   '.menu .container'//родительский селектор
+
+
+   ).render();
    
-      });
-      function closeModal(){
-         modal.classList.add('hide');
-         modal.classList.remove('show');
-         document.body.style.overflow = '';
-      }
-
-      modalClose.addEventListener('click', closeModal);
-
-      modal.addEventListener('click', (e) => {
-         if(e.target === modal){//когдапользователь кликнулна обвертку окна, но не само окно , то выполняется условие
-           closeModal();
-         }
-      })
-
-      document.addEventListener('keydown', (e) =>{
-         if(e.code === 'Escape' && modal.classList.contains('show')){
-            closeModal();
-         }
-      });
-
-      const modalTimeId = setTimeout(openModal, 3000);
-
-      function showModalByScroll(){
-         if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
-            openModal();
-            window.removeEventListener('scroll', showModalByScroll);
-         }
-      }
-// когда проискодит событие скрол до конца выпоняется условие и запускается openModal, после этого удаляется обработчик события скрола
-      window.addEventListener('scroll', showModalByScroll);
+   new MenuCard(//сюда передаем аргументы с кода html
+   "img/tabs/post.jpg"  ,//передавать в ""
+   "post",
+   'Меню "Постное"',
+   'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+   7,
+   '.menu .container'//родительский селектор
+   ).render();
 });
