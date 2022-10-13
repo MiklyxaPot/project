@@ -43,21 +43,37 @@
 .controll-main-block {
    display: inline-grid;
    grid-auto-flow: column;
+   align-items: center;
    gap: rem(20);
 
    &__dotts {
       display: inline-grid;
       grid-auto-flow: column;
-      gap: rem(15);
+      gap: rem(20);
       .swiper-pagination-bullet{
-         height: 2px;
-         width: 15px;   
-         background-color:#fff;
-          
+         cursor: pointer;
+         height: rem(40);
+          width: rem(18);
+          position: relative;
+          transition: all 0.3s ease 0s;
+
+         &::after{
+            content:'';
+            height: rem(2);
+              position: absolute;
+              width: 100%;
+              top: 50%;
+              transform: translate(0px,-50%);
+            transition: all 0.3s ease 0s;
+            background-color:#fff;
+         }
       }
       .swiper-pagination-bullet-active{
-         background-color: $mainOrange;
-         position: relative;
+         width: rem(30); //активный будет в два раза длинее
+         &::after{
+            content:'';
+              background-color: $mainOrange;
+         }
          &::before{
             content:'';
             background-color: $mainOrange;
