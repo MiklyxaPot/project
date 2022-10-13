@@ -56,7 +56,7 @@ function initSliders() {
          parallax:true,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,//круговое движение
 			//preloadImages: false,
 			//lazy: true,
 
@@ -115,6 +115,17 @@ function initSliders() {
 			*/
 			// События
 			on: {
+            init: function(swiper){
+               const allSladers = document.querySelector('.fraction-controll__all');
+               const allSladerItems = document.querySelectorAll('.main-block__slide:not(.swiper-slide-duplicate)');
+               // ЕСЛИ включить заккнутую петтлю loop: true то появятся swiper-slide-duplicate и они будут дополнистельно считатся и цыфра не коректно отоброжатся. надо эти классы не учитывать
+               allSladers.innerHTML = allSladerItems.length <10 ? `0${allSladerItems.length}` : allSladerItems.length;// если меньше 10 добавляем нолик  инасе просто выводим цыфру количество
+               console.log(swiper);
+            },
+            slideChange: function(swiper){
+               const curentSlader = document.querySelector('.fraction-controll__current');
+               curentSlader.innerHTML = swiper.realIndex+1 <10 ? `0${swiper.realIndex+1}` : swiper.realIndex+1;
+            }
 
 			}
 		});

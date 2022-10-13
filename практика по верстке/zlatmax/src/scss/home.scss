@@ -12,6 +12,9 @@
       align-items: start;//прижал элементы к верху
       grid-template-columns: 1fr percent(636, 1600);
       //percent это миксин который считаки проценты, 636 это ширина кортинки, 1600 шерина контенткой части 
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 43, 30); 
+      }
    }
 
    &__slider {
@@ -50,13 +53,26 @@
       display: inline-grid;
       grid-auto-flow: column;
       gap: rem(20);
+      transform: translate(0px,10%);//чуть полоски сместили ниже,
       .swiper-pagination-bullet{
          cursor: pointer;
-         height: rem(40);
+         height: rem(30);
           width: rem(18);
           position: relative;
           transition: all 0.3s ease 0s;
 
+          &::before{
+            content:'';
+            background-color: $mainOrange;
+            position: absolute;//делаем м позиционируем кружочек
+            height: rem(10);
+            width: rem(10);
+            top: 50%;
+            left: 0;
+            border-radius:50%;
+            transform: translate(0px,-50%);//кружочек слево черты
+            opacity: 0;
+         }
          &::after{
             content:'';
             height: rem(2);
@@ -64,7 +80,6 @@
               width: 100%;
               top: 50%;
               transform: translate(0px,-50%);
-            transition: all 0.3s ease 0s;
             background-color:#fff;
          }
       }
@@ -75,33 +90,36 @@
               background-color: $mainOrange;
          }
          &::before{
-            content:'';
-            background-color: $mainOrange;
-            position: absolute;//делаем м позиционируем кружщчек
-            height: rem(10);
-            width: rem(10);
-            top: 50%;
-            left: 0;
-            border-radius:50%;
-            transform: translate(0px,-50%);//кружочек слево черты
+            opacity: 1;//становится видно кружочек у активного
+            left: rem(20);
+            transition: left 2.5s linear 0s;//кружочек двигается по линии за 2.5 секунд, типо таймер
+
          }
+
+ 
       }
    }
 
    &__fraction {
-      display: flex;
-      color: #fff;
-   }
+ 
 }
-.fraction-control {
-}
+
 .fraction-controll {
+   display: flex;
+   color: #fff;
+   align-items: flex-end;
+   font-weight: 600;
+   letter-spacing: 0.3em;
 
    &__current {
+      font-size: rem(24);
+      color: $mainOrange;
    }
 
    &__all {
+      font-size: rem(18);
    }
+}
 }
 .slide-main-block {
 
@@ -160,8 +178,8 @@
       &::before{
          content:'';
          // сверстаем круг
-         width: 423px;
-         height: 423px;
+         width: percent(423,449);
+         padding-bottom: percent(423,449);//проценты высчитываются от ширины родителя
          border:2px solid rgba(255, 255, 255, 0.5);
          border-radius:50%;
          position: absolute;
@@ -174,6 +192,7 @@
       img{
          position: relative;
          z-index: 2;
+         max-width: 100%;
       }
    }
 
@@ -251,15 +270,28 @@
    }
 }
 .advantares-main {
+   display: grid;
+   grid-template-columns: repeat(4, auto);
+   gap: rem(10);
+   justify-content: space-between;
 
    &__item {
+      display: grid;
+      gap: rem(17);
+      text-align: center; 
+      max-width: rem(280);  
    }
 
    &__icon {
    }
 
    &__tex {
-   }
+      color: #fff;
+      font-weight: 600;
+      font-size: rem(20);
+      line-height: math.div(32 , 20); 
+
+     }
 }
 
 //====================================================================================================
