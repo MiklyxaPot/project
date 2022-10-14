@@ -163,12 +163,13 @@ window.addEventListener('DOMContentLoaded', () => {
    // ДЕЛАЕМ КАРТОЧКИ ДИНОМИЧЕСКИ
 
    class MenuCard {
-      constructor(src, alt, title, descr, praice, parentSelector) {
+      constructor(src, alt, title, descr, praice, parentSelector, ...classes) {
          this.src = src;
          this.alt = alt;
          this.title = title;
          this.descr = descr;
          this.praice = praice;
+         this.classes = classes;//добавили рест опретор который будет собирать новые классы в массив
          this.parent = document.querySelector(parentSelector);//сюда будет передаватся элемент который мы будет задавать в настройках
          this.transfer = 63;
          this.changeToRub();//когда сююда дойдет код он вызовет этотметод . он поститает и перезапишит  praice;
@@ -180,16 +181,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
       render() {
          const element = document.createElement('div');
+         if(this.classes.length === 0){
+            this.element = 'menu__item';
+            element.classList.add(this.element)
+         }else {
+           this.classes.forEach(className => element.classList.add(className));//перебираем масив classes находим каждый элемент className  и добавляем его(это классы) в element  
+         }         
          element.innerHTML = `
-               <div class="menu__item">
                <img src=${this.src} alt=${this.alt}>
                <h3 class="menu__item-subtitle">Меню ${this.title}</h3>
                <div class="menu__item-descr">${this.descr}</div>
                <div class="menu__item-divider"></div>
                <div class="menu__item-price">
                    <div class="menu__item-cost">Цена:</div>
-                   <div class="menu__item-total"><span>${this.praice}</span> рубль/день</div>
-               </div>`;
+                   <div class="menu__item-total"><span>${this.praice}</span> рубль/день</div>`;
          this.parent.append(element);//метод append помешает заданый элемент в  ново созданфй элемент
       }
    }
@@ -200,8 +205,6 @@ window.addEventListener('DOMContentLoaded', () => {
    "Меню 'Фитнес' - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!",
    10,
    '.menu .container'//родительский селектор
-
-
    ).render();//такая запись без const div= ТОже верна, она вызоветсятолбк в конструкторе потом удалится таккак нет ссылок на нее больше
 
    new MenuCard(//сюда передаем аргументы с кода html
@@ -211,8 +214,6 @@ window.addEventListener('DOMContentLoaded', () => {
    'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
    7,
    '.menu .container'//родительский селектор
-
-
    ).render();
    new MenuCard(//сюда передаем аргументы с кода html
    "img/tabs/elite.jpg",//передавать в ""
@@ -221,16 +222,7 @@ window.addEventListener('DOMContentLoaded', () => {
 'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
    9,
    '.menu .container'//родительский селектор
-
-
    ).render();
    
-   new MenuCard(//сюда передаем аргументы с кода html
-   "img/tabs/post.jpg"  ,//передавать в ""
-   "post",
-   'Меню "Постное"',
-   'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-   7,
-   '.menu .container'//родительский селектор
-   ).render();
 });
+
