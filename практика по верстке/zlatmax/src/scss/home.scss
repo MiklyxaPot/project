@@ -10,10 +10,14 @@
    &__body {
       display: grid;
       align-items: start;//прижал элементы к верху
-      grid-template-columns: 1fr percent(636, 1600);
       //percent это миксин который считаки проценты, 636 это ширина кортинки, 1600 шерина контенткой части 
+      row-gap: rem(40);
       &:not(:last-child) {
          @include adaptiveValue("margin-bottom", 43, 30); 
+      }
+      @media (min-width:$tablet){
+         grid-template-columns: 1fr percent(636, 1600);
+ 
       }
    }
 
@@ -125,10 +129,12 @@
 
    &__content {
       color: #fff;
-      padding:  0px rem(40) 0px 0px;
       &:not(:last-child) {
          @include adaptiveValue("margin-bottom",60 ,30 );
          // отступ ОТ  кнопки
+      }
+      @media (min-width:$tablet){
+         padding:  0px rem(40) 0px 0px;//отступ безопасности нужен только шире таблела, потом все в колонку
       }
       // 
    }
@@ -136,8 +142,8 @@
    &__title {
       font-weight: 700;
       letter-spacing: 0.03em;
-      font-size: rem(36);
       line-height: math.div(46 , 36);
+      @include adaptiveValue("font-size", 36, 22, 992, 320, 1);// шрифт будет после 992рх до 320рх уменьшатся до 22 
       &:not(:last-child) {
          // если останется один, тоесть последний мержин удвлится
          margin-bottom: em(15, 36);
@@ -146,7 +152,7 @@
    }
 
    &__sub-title {
-      font-size: rem(36);
+      @include adaptiveValue("font-size", 36, 22, 992, 320, 1);
       line-height: math.div(46 , 36);
       &:not(:last-child) {
          margin-bottom: em(30, 36);
@@ -155,10 +161,18 @@
 
    &__text {
       color: rgba(255, 255, 255, 0.7);
-      font-size: rem(20);
       line-height: math.div(30 , 20 );
-
+      @include adaptiveValue("font-size", 20, 16, 992, 320, 1);
 }
+
+
+   &__button {
+      @media (max-width:$mobileSmall){
+           width: 100%;//увеличиваем кнопку на всю ширину
+      }
+   }
+
+
 
 
 }
@@ -271,18 +285,30 @@
 }
 .advantares-main {
    display: grid;
-   grid-template-columns: repeat(4, auto);
-   gap: rem(10);
+   grid-template-columns: repeat(4, auto);//выстраивает сетку по 4 колонки
+   gap: rem(20);
    justify-content: space-between;
+   @media (max-width:$tablet){
+      row-gap: rem(30);//отступ нижний между колонками
+      grid-template-columns: repeat(2, 1fr); //уже по 2 колонки
+      justify-items: center;//выстраиваются по центру, без большого отступа
+ 
+   }
+   @media (max-width:$mobile){
+      grid-template-columns: repeat(1, 1fr); //уже по 1 колонки
+  
+   }
 
    &__item {
-      display: grid;
+      display: inline-grid;
       gap: rem(17);
       text-align: center; 
       max-width: rem(280);  
+      grid-template-rows: 77px auto;//чтобы иконки ровно в ряд, 77рх высота самой высокой
    }
 
    &__icon {
+      align-items: center;
    }
 
    &__tex {
